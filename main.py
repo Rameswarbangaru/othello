@@ -7,11 +7,15 @@ from board import *
 s = input("Do you want to continue previous game:")
 if s == "NO":
     resetsave()
-l=readsave()
+    person_choice1 = readsave()[0]
+    person_choice2 = 1 - person_choice1
+else:
+    person_choice1=int(input("CHOICE1 :"))
+    person_choice2=int(input("CHOICE2 :"))
+l=readsave()[1:10]
+
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  MAIN  FUNCTION
 
-person_choice1=int(input("CHOICE1 :"))
-person_choice2=int(input("CHOICE2 :"))
 while(count1+count0!=64):
     for i in range(7,-1,-1):
         for j in range(0,8):
@@ -22,14 +26,14 @@ while(count1+count0!=64):
     for i in range(0,8):
         for j in range(0,8):
             if l[i][j]==-1:
-                index=fun1(j,i,person_choice1)
+                index=fun1(j,i,person_choice1,l)
                 if index>0:
                     eligible_1=1
                     print("green>>",f"({j},{i})")
     if eligible_1==1:
         while 1:
             x,y=map(int,input().split())
-            indi=fun(x,y,person_choice1)
+            indi=fun(x,y,person_choice1,l)
             if indi>0:
                 break
             writesave(l,person_choice1)
@@ -38,7 +42,7 @@ while(count1+count0!=64):
     for i in range(0,8):
         for j in range(0,8):
             if l[i][j]==-1:
-                index=fun1(j,i,person_choice2)
+                index=fun1(j,i,person_choice2,l)
                 #print(j,i,person_choice2)
                 if index>0:
                     eligible_2=1
@@ -46,7 +50,7 @@ while(count1+count0!=64):
     if eligible_2==1:
         while 1:
             x,y=map(int,input().split())
-            indi=fun(x,y,person_choice2)
+            indi=fun(x,y,person_choice2,l)
             if indi>0:
                 break
             writesave(l,personchoice_2)

@@ -1,7 +1,7 @@
 count1=0
 count0=0
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FLIPING FUNCTOION >>
-def fun(x,y,n):
+def fun(x,y,n,l):
     global count1,count0
     count=0
     if l[y][x] != 0 and l[y][x] != 1:
@@ -109,7 +109,7 @@ def fun(x,y,n):
     print("white: ",count1)
     return count
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CHOICE  SHOWING  FUNCTION   >>>>
-def fun1(x,y,n):
+def fun1(x,y,n,l):
     l1=[row[:] for row in l]
     count=0
     if l1[y][x] != 0 and l1[y][x] != 1:
