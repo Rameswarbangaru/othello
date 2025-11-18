@@ -19,7 +19,10 @@ l=readsave()[1:10]
 while(count1+count0!=64):
     for i in range(7,-1,-1):
         for j in range(0,8):
-            print(l[i][j],end=" ")
+            if (l[i][j]!=-1):
+                print("",l[i][j],end=" ")
+            else:
+                print(l[i][j],end=" ")
         print()
     eligible_1=0
     eligible_2=0
@@ -39,6 +42,13 @@ while(count1+count0!=64):
             writesave(l,person_choice1)
     else:
         print(f"{person_choice1} cannot palce a coin ")
+    for i in range(7,-1,-1):
+        for j in range(0,8):
+            if (l[i][j]!=-1):
+                print("",l[i][j],end=" ")
+            else:
+                print(l[i][j],end=" ")
+        print()
     for i in range(0,8):
         for j in range(0,8):
             if l[i][j]==-1:
