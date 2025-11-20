@@ -17,7 +17,6 @@ l=readsave()[1:10]
 
 while(count1+count0!=64):
     # To print board :
-    
     for i in range(7,-1,-1):
         for j in range(0,8):
             if (l[i][j]!=-1):
