@@ -1,7 +1,7 @@
 def readsave():
-    """
-    Reads the text file `save.txt` and returns the state
-    """
+
+    # it reads the "save.txt" file and returns the board condition
+
     a = []
     with open("save.txt", "r") as file:
         lines = file.readlines()[2:12]
@@ -13,9 +13,9 @@ def readsave():
 
 
 def writesave(state, color):
-    """
-    Overwrites the `state` to `save.txt`
-    """
+    
+    # after coin is placed it writes the state of board to "save.txt"
+
     with open("save.txt", "r") as file:
         lines = file.readlines()[0:4]
 
@@ -29,9 +29,9 @@ def writesave(state, color):
 
 
 def resetsave():
-    """
-    Initializes the state.
-    """
+    
+    # it returns the initial state of board
+    
     state = [
         [-1, -1, -1, -1, -1, -1, -1, -1],
         [-1, -1, -1, -1, -1, -1, -1, -1],
