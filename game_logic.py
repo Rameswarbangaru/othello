@@ -88,23 +88,33 @@ def fun(x,y,n,l):
                         l[y + (j - x)][j] = n
                         count += 1
                     break
+        # if the position is not valid :
+
         if count == 0:
             count = 0
             print("Try another position")
+
+        # until it is a valid position it won't place the coin
+
         if count > 0:
             l[y][x] = n
+
+    # to know if you are placing the coin over other coin
     else:
         print("over other")
+
     count1=0
     count0=0
+
+    # To count the no. of black and white coins
+
+
     for i in range(0,8):
         for j in range(0,8):
             if l[i][j]==0:
                 count0+=1
-                # print(f"({j},{i} is black)")
             elif l[i][j]==1:
                 count1+=1
-                # print(f"({j},{i} is white)")
     print("Black: ",count0)
     print("white: ",count1)
     return count
@@ -196,4 +206,5 @@ def fun1(x,y,n,l):
                             l1[y + (j - x)][j] = n
                             count += 1
                         break
+    # count indicate if flipping is possible
     return count

@@ -1,15 +1,14 @@
 from game_logic import *
 from board import *
-
-# l=[[-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1]]
-# l[4][4]=l[3][3]=0
-# l[4][3]=l[3][4]=1
+# 0 --->> BLACK COIN
+# 1 --->> WHITE COIN
+# -1 -->> EMPTY SPACE
 s = input("Do you want to continue previous game:")
-if s == "NO":
-    resetsave()
-    person_choice1 = readsave()[0]
-    person_choice2 = 1 - person_choice1
+if s == "YES":
+    person_choice1 = 1-readsave()[0]
+    person_choice2 = person_choice1
 else:
+    resetsave()
     person_choice1=int(input("CHOICE1 :"))
     person_choice2=int(input("CHOICE2 :"))
 l=readsave()[1:10]
@@ -17,6 +16,8 @@ l=readsave()[1:10]
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  MAIN  FUNCTION
 
 while(count1+count0!=64):
+    # To print board :
+    
     for i in range(7,-1,-1):
         for j in range(0,8):
             if (l[i][j]!=-1):
@@ -24,8 +25,14 @@ while(count1+count0!=64):
             else:
                 print(l[i][j],end=" ")
         print()
+
     eligible_1=0
     eligible_2=0
+
+    # eligible is used to know if player has valid move
+     
+    # this loop prints the valid positions to place a coin using function "fun1"
+
     for i in range(0,8):
         for j in range(0,8):
             if l[i][j]==-1:
@@ -33,15 +40,24 @@ while(count1+count0!=64):
                 if index>0:
                     eligible_1=1
                     print("green>>",f"({j},{i})")
+
     if eligible_1==1:
+        print(f"It's {person_choice1}'s turn.")
         while 1:
             x,y=map(int,input().split())
+            
+            # "fun" function flips the valid coins(numbers)   and   "indi" indicates that flipping is done
+
             indi=fun(x,y,person_choice1,l)
+            writesave(l,person_choice1)
             if indi>0:
                 break
-            writesave(l,person_choice1)
+
     else:
         print(f"{person_choice1} cannot palce a coin ")
+
+    # To print board :
+
     for i in range(7,-1,-1):
         for j in range(0,8):
             if (l[i][j]!=-1):
@@ -49,25 +65,37 @@ while(count1+count0!=64):
             else:
                 print(l[i][j],end=" ")
         print()
+
+    # this loop prints the valid positions to place a coin using function "fun1"
+
     for i in range(0,8):
         for j in range(0,8):
             if l[i][j]==-1:
                 index=fun1(j,i,person_choice2,l)
-                #print(j,i,person_choice2)
                 if index>0:
                     eligible_2=1
                     print("green>>",f"({j},{i})")
+
     if eligible_2==1:
+        print(f"It's {person_choice2}'s turn.")
         while 1:
             x,y=map(int,input().split())
+
+            # "fun" function flips the valid coins(numbers)   and   "indi" indicates that flipping is do
+
             indi=fun(x,y,person_choice2,l)
+            writesave(l,person_choice2)
             if indi>0:
                 break
-            writesave(l,personchoice_2)
+            
     else:
         print(f"{person_choice2} cannot palce a coin ")
+
+    # if both players have no move then game ends
+
     if eligible_1==0 and eligible_2==0:
         break
+
 if count1>count0:
     print("1 is the WINNWER !!!!")
 else:
