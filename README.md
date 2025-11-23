@@ -1,7 +1,7 @@
 # othello
 A famous (8*8) board game as python project.
 # set up  and directory structure
-1.Install board.by,game_logic.py , main.py and save.txt and place them in the same directory.
+1.Install board.by,game_logic.py , main.py and save.txt and place them in the same directory.<br>
 2.Run main.py in the terminal and procede according to requirements. 
 # Game instructions 
 1.The board starts with 2 black and 2 white discs in the center.
