@@ -4,7 +4,7 @@ A famous (8*8) board game as python project.
 1.Install board.by,game_logic.py , main.py and save.txt and place them in the same directory.<br>
 2.Run main.py in the terminal and procede according to requirements. 
 # Game instructions 
-1.The board starts with 2 black and 2 white discs in the center.<br>
+1.The board starts with 2 black and 2 white discs in the center.(0 --> black and 1-->white) <br>
 2.Players take turns placing a disc of their color.<br>
 3.A move is valid only if it flips at least one opponent disc by trapping it between the new disc and an existing disc of your color (in a  traight line).<br>
 4.You flip all trapped discs in all directions.<br>
