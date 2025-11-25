@@ -11,3 +11,5 @@ A famous (8*8) board game as python project.
 5.If a player has no valid moves, they skip their turn.<br>
 6.The game ends when the board is full or no moves exist.<br>
 Player with more discs wins.!!!!
+#Features
+Yoy will be able to continue the previous game , it an old game exist. 
