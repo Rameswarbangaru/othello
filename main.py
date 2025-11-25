@@ -48,8 +48,9 @@ while(count1+count0!=64):
             # "fun" function flips the valid coins(numbers)   and   "indi" indicates that flipping is done
 
             indi=fun(x,y,person_choice1,l)
-            writesave(l,person_choice1)
+
             if indi>0:
+                writesave(l,person_choice1)
                 break
 
     else:
@@ -83,8 +84,9 @@ while(count1+count0!=64):
             # "fun" function flips the valid coins(numbers)   and   "indi" indicates that flipping is do
 
             indi=fun(x,y,person_choice2,l)
-            writesave(l,person_choice2)
+            
             if indi>0:
+                writesave(l,person_choice2)
                 break
             
     else:
